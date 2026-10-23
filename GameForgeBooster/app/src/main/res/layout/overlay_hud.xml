@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#CC0E0F14"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/hudFps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/forge_accent"
+        android:textStyle="bold"
+        android:textSize="13sp"
+        tools:text="59 FPS" />
+
+    <TextView
+        android:id="@+id/hudRam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/forge_text"
+        android:textSize="11sp"
+        tools:text="RAM free 612 MB" />
+
+    <TextView
+        android:id="@+id/hudThermal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/forge_text"
+        android:textSize="11sp"
+        tools:text="Thermal: Nominal" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="6dp">
+
+        <ImageButton
+            android:id="@+id/hudClose"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:background="@android:color/transparent"
+            android:src="@android:drawable/ic_menu_close_clear_cancel"
+            android:contentDescription="@null" />
+
+        <ImageButton
+            android:id="@+id/hudHdrToggle"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="6dp"
+            android:background="@android:color/transparent"
+            android:src="@android:drawable/ic_menu_view"
+            android:contentDescription="@null" />
+
+        <ImageButton
+            android:id="@+id/hudDndToggle"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="6dp"
+            android:background="@android:color/transparent"
+            android:src="@android:drawable/ic_lock_silent_mode"
+            android:contentDescription="@null" />
+    </LinearLayout>
+</LinearLayout>

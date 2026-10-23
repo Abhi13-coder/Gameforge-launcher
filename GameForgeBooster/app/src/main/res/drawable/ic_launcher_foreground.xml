@@ -1,0 +1,26 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp" android:height="108dp"
+    android:viewportWidth="108" android:viewportHeight="108">
+
+    <!-- Hex badge outline — the recognizable silhouette at a glance, even
+         tiny on a home screen. Stays inside the ~66dp adaptive-icon safe
+         zone so no launcher mask (circle/squircle/rounded-square) clips it. -->
+    <path
+        android:pathData="M84,54 L69,79.98 L39,79.98 L24,54 L39,28.02 L69,28.02 Z"
+        android:strokeColor="#5EE1FF"
+        android:strokeWidth="5"
+        android:fillColor="#00000000" />
+
+    <!-- Bolt, the "boost" mark -->
+    <path
+        android:pathData="M61,30 L48,58 L57,58 L46,82 L65,52 L55,52 Z"
+        android:fillColor="#5EE1FF" />
+
+    <!-- Small accent node, top-right of the hex — a quiet nod to the
+         RGB/vivid-mode feature, not literal RGB (a single flat color
+         reads cleanly at launcher-icon size; actual RGB cycling belongs
+         in the app UI, not baked into a static icon). -->
+    <path
+        android:pathData="M69,28.02 m-4,0 a4,4 0 1,0 8,0 a4,4 0 1,0 -8,0"
+        android:fillColor="#FF6B6B" />
+</vector>

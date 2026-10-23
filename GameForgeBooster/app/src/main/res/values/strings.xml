@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">GameForge Booster</string>
+    <string name="tile_game_mode">Game Mode</string>
+    <string name="action_boost_launch">Boost &amp; Launch</string>
+    <string name="action_launch">Launch</string>
+    <string name="section_games">Your Games</string>
+    <string name="section_tools">Tools</string>
+    <string name="permissions_needed">Permissions GameForge needs</string>
+    <string name="action_add_game">Add Game</string>
+    <string name="auto_detect_label">Auto-arm HUD when a game opens</string>
+    <string name="battery_saver_warning">Battery Saver is on — it caps performance. Tap to turn off.</string>
+    <string name="action_display_settings">Display / Smooth Display</string>
+    <string name="action_battery_exempt">Exempt GameForge from battery optimization</string>
+</resources>

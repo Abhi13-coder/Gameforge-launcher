@@ -1,0 +1,15 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp" android:height="108dp"
+    android:viewportWidth="108" android:viewportHeight="108">
+    <!-- Themed-icon layer (Android 13+ "Material You" icon theming). The
+         system re-tints this to the user's wallpaper palette, so the fill
+         color here is a placeholder, not the real on-device color. -->
+    <path
+        android:pathData="M84,54 L69,79.98 L39,79.98 L24,54 L39,28.02 L69,28.02 Z"
+        android:strokeColor="#FF000000"
+        android:strokeWidth="5"
+        android:fillColor="#00000000" />
+    <path
+        android:pathData="M61,30 L48,58 L57,58 L46,82 L65,52 L55,52 Z"
+        android:fillColor="#FF000000" />
+</vector>
