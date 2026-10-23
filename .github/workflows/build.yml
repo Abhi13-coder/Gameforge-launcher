@@ -1,0 +1,60 @@
+name: Build GameForge Booster
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Install API 36 platform + build-tools
+        run: |
+          sdkmanager "platforms;android-36" "build-tools;36.0.0" || \
+          sdkmanager "platforms;android-35" "build-tools;35.0.0"
+          # Falls back to API 35 if 36 isn't published for sdkmanager yet —
+          # drop compileSdk/targetSdk to 35 in app/build.gradle.kts to match.
+
+      - name: Grant execute to gradlew
+        run: chmod +x gradlew
+
+      - name: Build debug APK
+        run: ./gradlew assembleDebug --stacktrace
+
+      # find instead of a hardcoded path: survives AGP changing its output
+      # layout, added build flavors/variants, or a renamed module, and fails
+      # the job loudly instead of silently uploading nothing if no APK exists.
+      - name: Locate built APK(s)
+        id: locate
+        run: |
+          mapfile -t apks < <(find . -type f -name "*.apk" -path "*/outputs/apk/*")
+          if [ ${#apks[@]} -eq 0 ]; then
+            echo "No APK found under any */outputs/apk/* — build likely failed earlier." >&2
+            exit 1
+          fi
+          printf '%s\n' "${apks[@]}"
+          {
+            echo "apk_paths<<EOF_APKS"
+            printf '%s\n' "${apks[@]}"
+            echo "EOF_APKS"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Upload APK(s)
+        uses: actions/upload-artifact@v4
+        with:
+          name: gameforge-booster-debug
+          path: ${{ steps.locate.outputs.apk_paths }}
+          if-no-files-found: error
